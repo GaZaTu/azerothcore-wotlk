@@ -86,6 +86,10 @@ services:
       - ${DOCKER_VOL_LOGS:-./env/dist/logs}:/azerothcore/env/dist/logs:delegated
       # client data
       - ${DOCKER_VOL_DATA:-ac-client-data}:/azerothcore/env/dist/data/:ro
+      # lua_scripts
+      - ${DOCKER_VOL_SCRIPTS:-./env/dist/lua_scripts}:/azerothcore/env/dist/lua_scripts
+      # wasm_scripts
+      - ${DOCKER_VOL_SCRIPTS:-./env/dist/wasm_scripts}:/azerothcore/env/dist/wasm_scripts
     depends_on:
       ac-database:
         condition: service_healthy
