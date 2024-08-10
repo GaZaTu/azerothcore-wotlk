@@ -89,7 +89,9 @@ services:
       # lua_scripts
       - ${DOCKER_VOL_SCRIPTS:-./env/dist/lua_scripts}:/azerothcore/env/dist/lua_scripts
       # wasm_scripts
-      - ${DOCKER_VOL_SCRIPTS:-./env/dist/wasm_scripts}:/azerothcore/env/dist/wasm_scripts
+      - ${DOCKER_VOL_WASM:-./env/dist/wasm_scripts}:/azerothcore/env/dist/wasm_scripts
+      # progression-system
+      - ${DOCKER_VOL_PROGRESSION:-./modules/mod-progression-system}:/modules/mod-progression-system
     depends_on:
       ac-database:
         condition: service_healthy

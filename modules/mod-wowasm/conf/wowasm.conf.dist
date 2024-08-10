@@ -1,0 +1,18 @@
+#
+# Copyright (C) 2016+ AzerothCore <www.azerothcore.org>, released under GNU AGPL v3 license: https://github.com/azerothcore/azerothcore-wotlk/blob/master/LICENSE-AGPL3
+#
+
+[worldserver]
+
+########################################
+# WoWasm configuration
+########################################
+#
+#    WoWasm.Enable
+#        Description: Enable WoWasm
+#        Default:     0 - Disabled
+#                     1 - Enabled
+#
+
+WoWasm.Enable = 1
+WoWasm.ScriptPath = "wasm_scripts"
