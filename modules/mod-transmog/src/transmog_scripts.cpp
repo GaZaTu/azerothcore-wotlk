@@ -438,7 +438,7 @@ public:
                 }
                 if (removed)
                 {
-                    session->SendAreaTriggerMessage("%s", GTS(LANG_ERR_UNTRANSMOG_OK));
+                    session->SendAreaTriggerMessage("{}", GTS(LANG_ERR_UNTRANSMOG_OK));
                     CharacterDatabase.CommitTransaction(trans);
                 }
                 else
@@ -452,7 +452,7 @@ public:
                     if (sT->GetFakeEntry(newItem->GetGUID()))
                     {
                         sT->DeleteFakeEntry(player, action, newItem);
-                        session->SendAreaTriggerMessage("%s", GTS(LANG_ERR_UNTRANSMOG_OK));
+                        session->SendAreaTriggerMessage("{}", GTS(LANG_ERR_UNTRANSMOG_OK));
                     }
                     else
                         session->SendNotification(LANG_ERR_UNTRANSMOG_NO_TRANSMOGS);
@@ -580,7 +580,7 @@ public:
                 {
                     TransmogAcoreStrings res = sT->Transmogrify(player, action, sender);
                     if (res == LANG_ERR_TRANSMOG_OK)
-                        session->SendAreaTriggerMessage("%s",GTS(LANG_ERR_TRANSMOG_OK));
+                        session->SendAreaTriggerMessage("{}",GTS(LANG_ERR_TRANSMOG_OK));
                     else
                         session->SendNotification(res);
                 }
@@ -588,7 +588,7 @@ public:
                 {
                     TransmogAcoreStrings res = sT->Transmogrify(player, ObjectGuid::Create<HighGuid::Item>(action), sender);
                     if (res == LANG_ERR_TRANSMOG_OK)
-                        session->SendAreaTriggerMessage("%s",GTS(LANG_ERR_TRANSMOG_OK));
+                        session->SendAreaTriggerMessage("{}",GTS(LANG_ERR_TRANSMOG_OK));
                     else
                         session->SendNotification(res);
                 }
@@ -891,7 +891,7 @@ private:
         if (sT->AddCollectedAppearance(accountId, itemId))
         {
             if (showChatMessage)
-                ChatHandler(player->GetSession()).PSendSysMessage( R"(|c%s|Hitem:%u:0:0:0:0:0:0:0:0|h[%s]|h|r %s)", itemQuality.c_str(), itemId, itemName.c_str(), GetLocaleText(locale, "added_appearance"));
+                ChatHandler(player->GetSession()).PSendSysMessage( R"(|c{}|Hitem:{}:0:0:0:0:0:0:0:0|h[{}]|h|r {})", itemQuality, itemId, itemName, GetLocaleText(locale, "added_appearance"));
 
             CharacterDatabase.Execute( "INSERT INTO custom_unlocked_appearances (account_id, item_template_id) VALUES ({}, {})", accountId, itemId);
         }
